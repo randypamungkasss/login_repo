@@ -1,12 +1,15 @@
+from django.contrib.auth.mixins import LoginRequiredMixin
 from django.shortcuts import render, redirect
 from .models import Todo
 from django.views import View
 from django.contrib import messages
 
 # Create your views here.
-class IndexView(View):
+class IndexView(LoginRequiredMixin, View):
+    login_url = '/login/'
+
     def get(self, request):
-        todos = Todo.objects.all()
+        todos = Todo.objects.filter(actor=request.user)
         context = {
         "todos":todos
         }
