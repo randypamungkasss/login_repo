@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>{{todo.title}}</title>
+  </head>
+  <body>
+    <h1>{{todo.title}}</h1>
+    <p>{{todo.content}}</p>
+    <form method="post" action="{% url 'delete' todo.id %}">
+      {% csrf_token %}
+      <button>Delete</button>
+    </form>
+    <button><a href="{% url 'index' %}">Back Home</a></button>
+  </body>
+</html>

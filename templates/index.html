@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>My Website</title>
+  </head>
+  <body>
+    <h1>Welcome to My Website!</h1>
+    <p>This is a simple HTML template.</p>
+    {% for todo in todos %}
+    <a href="{% url 'detail-view' todo.id %}">{{todo.title}}</a>
+    {% endfor %}
+    <form method="post">
+      {% csrf_token %}
+      <input name="title" placeholder="Input Title" />
+      <textarea name="content" placeholder="Input Content"></textarea>
+      <button>Submit</button>
+    </form>
+  </body>
+</html>
