@@ -16,3 +16,7 @@ class RegisterView(View):
         print(new_user)
 
         return redirect('register')
+    
+class LoginView(View):
+    def get(self, request):
+        return render(request, "login.html")
