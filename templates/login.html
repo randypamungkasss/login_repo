@@ -10,5 +10,8 @@
      <input name="password" placeholder="Password" type="password" required />
      <button>Register</Register>
      </form>
+    {% for message in messages %}
+    <div>{{message}}</div>
+    {% endfor %}
  </body>
  </html>
