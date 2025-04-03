@@ -19,7 +19,7 @@ class IndexView(View):
         if not title and not content:
             messages.error(request, "Isi semua kolom")
         else:
-            Todo.objects.create(title=title, content=content)
+            Todo.objects.create(title=title, content=content, actor=request.user)
         return redirect('index')
 
 class DetailView(View):
